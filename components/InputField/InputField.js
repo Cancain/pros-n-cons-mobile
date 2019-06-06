@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  StyleSheet,
-  TouchableHighlight
-} from "react-native";
+import { View, TextInput, Button, StyleSheet } from "react-native";
+import SelectorBtn from "../UI/SelectorBtn/SelectorBtn";
 
 const InputField = props => {
   const [isPro, setIsPro] = useState(true);
@@ -19,16 +13,6 @@ const InputField = props => {
     InputField: {
       width: "70%",
       backgroundColor: "rgba(0,0,0,0.4)"
-    },
-    Selector: {
-      backgroundColor: "rgba(0,0,0,0.1)",
-      marginTop: 10,
-      marginHorizontal: 10,
-      padding: 20,
-      borderRadius: 100
-    },
-    Selected: {
-      backgroundColor: "green"
     }
   });
 
@@ -48,18 +32,16 @@ const InputField = props => {
         <Button color="blue" title="Add" onPress={() => click()} />
       </View>
       <View style={styles.Container}>
-        <TouchableHighlight
-          style={proSelectStyle}
-          onPress={() => switchProCon(true)}
-        >
-          <Text>Pro</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={conSelectStyle}
-          onPress={() => switchProCon(false)}
-        >
-          <Text>Con</Text>
-        </TouchableHighlight>
+        <SelectorBtn
+          text="Pro"
+          selected={isPro}
+          clicked={() => switchProCon(true)}
+        />
+        <SelectorBtn
+          text="Con"
+          clicked={() => switchProCon(false)}
+          selected={!isPro}
+        />
       </View>
     </View>
   );
