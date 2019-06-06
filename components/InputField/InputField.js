@@ -22,29 +22,40 @@ const InputField = props => {
 
   const proSelectStyle = [styles.Selector, isPro ? styles.Selected : null];
   const conSelectStyle = [styles.Selector, !isPro ? styles.Selected : null];
-  return (
-    <View>
-      <View style={styles.Container}>
-        <TextInput
-          style={styles.InputField}
-          placeholder="Insert reason here..."
-        />
-        <Button color="blue" title="Add" onPress={() => click()} />
-      </View>
-      <View style={styles.Container}>
-        <SelectorBtn
-          text="Pro"
-          selected={isPro}
-          clicked={() => switchProCon(true)}
-        />
-        <SelectorBtn
-          text="Con"
-          clicked={() => switchProCon(false)}
-          selected={!isPro}
-        />
-      </View>
+
+  const renderReasoInput = (
+    <View style={styles.Container}>
+      <TextInput
+        style={styles.InputField}
+        placeholder="Insert reason here..."
+      />
+      <Button color="blue" title="Add" onPress={() => click()} />
     </View>
   );
+
+  const renderSelectors = (
+    <View style={styles.Container}>
+      <SelectorBtn
+        text="Pro"
+        selected={isPro}
+        clicked={() => switchProCon(true)}
+      />
+      <SelectorBtn
+        text="Con"
+        clicked={() => switchProCon(false)}
+        selected={!isPro}
+      />
+    </View>
+  );
+
+  const renderView = (
+    <View>
+      {renderReasoInput}
+      {renderSelectors}
+    </View>
+  );
+
+  return renderView;
 };
 
 export default InputField;

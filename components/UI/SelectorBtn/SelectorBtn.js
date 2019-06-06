@@ -8,7 +8,9 @@ const SelectorBtn = props => {
       marginTop: 10,
       marginHorizontal: 10,
       padding: 20,
-      borderRadius: 100
+      borderRadius: 100,
+      width: 65,
+      height: 65
     },
     Selected: {
       backgroundColor: "green"
