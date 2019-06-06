@@ -5,6 +5,14 @@ import SelectorBtn from "../UI/SelectorBtn/SelectorBtn";
 const InputField = props => {
   const [isPro, setIsPro] = useState(true);
   const styles = StyleSheet.create({
+    Wrapper: {
+      backgroundColor: "rgba(0, 0, 0, 0.2)",
+      width: "90%",
+      marginLeft: "auto",
+      marginRight: "auto",
+      paddingVertical: 10,
+      borderRadius: 7
+    },
     Container: {
       display: "flex",
       flexDirection: "row",
@@ -20,16 +28,13 @@ const InputField = props => {
     setIsPro(selector);
   };
 
-  const proSelectStyle = [styles.Selector, isPro ? styles.Selected : null];
-  const conSelectStyle = [styles.Selector, !isPro ? styles.Selected : null];
-
   const renderReasoInput = (
     <View style={styles.Container}>
       <TextInput
         style={styles.InputField}
         placeholder="Insert reason here..."
       />
-      <Button color="blue" title="Add" onPress={() => click()} />
+      <Button color="rgba(0,0,0,0.7)" title="Add" onPress={() => click()} />
     </View>
   );
 
@@ -49,7 +54,7 @@ const InputField = props => {
   );
 
   const renderView = (
-    <View>
+    <View style={styles.Wrapper}>
       {renderReasoInput}
       {renderSelectors}
     </View>
