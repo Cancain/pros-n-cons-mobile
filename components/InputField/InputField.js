@@ -6,6 +6,9 @@ import ValueSlide from "../UI/ValueSlide/ValueSlide";
 
 const InputField = props => {
   const [isPro, setIsPro] = useState(true);
+  const [text, setText] = useState();
+  const [strength, setStrength] = useState(1);
+
   const styles = StyleSheet.create({
     Wrapper: {
       backgroundColor: "rgba(0, 0, 0, 0.2)",
@@ -33,13 +36,24 @@ const InputField = props => {
     setIsPro(selector);
   };
 
-  const renderReasoInput = (
+  const addReason = () => {
+    const reason = {
+      text,
+      isPro,
+      strength
+    };
+
+    props.addReason(reason);
+  };
+
+  const renderReasonInput = (
     <View style={styles.Container}>
       <TextInput
         style={styles.InputField}
         placeholder="Insert reason here..."
+        onChangeText={value => setText(value)}
       />
-      <Btn text="Add" clicked={() => console.warn("test")} />
+      <Btn text="Add" clicked={() => addReason()} />
     </View>
   );
 
@@ -62,8 +76,8 @@ const InputField = props => {
 
   const renderView = (
     <View style={styles.Wrapper}>
-      {renderReasoInput}
-      <ValueSlide text="Strength" />
+      {renderReasonInput}
+      <ValueSlide text="Strength" valueChanged={value => setStrength(value)} />
       {renderSelectors}
     </View>
   );
