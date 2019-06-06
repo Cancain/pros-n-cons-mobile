@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import InputField from "../../components/InputField/InputField";
+import ReasonList from "../ReasonList/ReasonList";
 
 const List = props => {
   const [reasons, setReasons] = useState([]);
@@ -14,6 +15,7 @@ const List = props => {
   return (
     <View>
       <InputField addReason={reason => addReason(reason)} />
+      <ReasonList />
     </View>
   );
 };

@@ -3,6 +3,7 @@ import { View, TextInput, StyleSheet } from "react-native";
 import SelectorBtn from "../UI/SelectorBtn/SelectorBtn";
 import Btn from "../UI/Btn/Btn";
 import ValueSlide from "../UI/ValueSlide/ValueSlide";
+import Wrapper from "../../containers/Wrapper/Wrapper";
 
 const InputField = props => {
   const [isPro, setIsPro] = useState(true);
@@ -75,11 +76,11 @@ const InputField = props => {
   );
 
   const renderView = (
-    <View style={styles.Wrapper}>
+    <Wrapper>
       {renderReasonInput}
       <ValueSlide text="Strength" valueChanged={value => setStrength(value)} />
       {renderSelectors}
-    </View>
+    </Wrapper>
   );
 
   return renderView;
