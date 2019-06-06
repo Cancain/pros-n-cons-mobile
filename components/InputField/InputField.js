@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 const InputField = props => {
-  const [isPro, setIsPro] = useState(null);
+  const [isPro, setIsPro] = useState(true);
   const styles = StyleSheet.create({
     Container: {
       display: "flex",
@@ -26,12 +26,18 @@ const InputField = props => {
       marginHorizontal: 10,
       padding: 20,
       borderRadius: 100
+    },
+    Selected: {
+      backgroundColor: "green"
     }
   });
 
-  const click = () => {
-
+  const switchProCon = selector => {
+    setIsPro(selector);
   };
+
+  const proSelectStyle = [styles.Selector, isPro ? styles.Selected : null];
+  const conSelectStyle = [styles.Selector, !isPro ? styles.Selected : null];
   return (
     <View>
       <View style={styles.Container}>
@@ -42,10 +48,16 @@ const InputField = props => {
         <Button color="blue" title="Add" onPress={() => click()} />
       </View>
       <View style={styles.Container}>
-        <TouchableHighlight style={styles.Selector}>
+        <TouchableHighlight
+          style={proSelectStyle}
+          onPress={() => switchProCon(true)}
+        >
           <Text>Pro</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.Selector}>
+        <TouchableHighlight
+          style={conSelectStyle}
+          onPress={() => switchProCon(false)}
+        >
           <Text>Con</Text>
         </TouchableHighlight>
       </View>
