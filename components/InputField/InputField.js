@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet } from "react-native";
 import SelectorBtn from "../UI/SelectorBtn/SelectorBtn";
 import Btn from "../UI/Btn/Btn";
+import ValueSlide from "../UI/ValueSlide/ValueSlide";
 
 const InputField = props => {
   const [isPro, setIsPro] = useState(true);
@@ -47,12 +48,14 @@ const InputField = props => {
       <SelectorBtn
         text="Pro"
         selected={isPro}
+        selectedColor="green"
         clicked={() => switchProCon(true)}
       />
       <SelectorBtn
         text="Con"
-        clicked={() => switchProCon(false)}
         selected={!isPro}
+        selectedColor="red"
+        clicked={() => switchProCon(false)}
       />
     </View>
   );
@@ -60,6 +63,7 @@ const InputField = props => {
   const renderView = (
     <View style={styles.Wrapper}>
       {renderReasoInput}
+      <ValueSlide text="Strength" />
       {renderSelectors}
     </View>
   );

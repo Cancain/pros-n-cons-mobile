@@ -16,7 +16,9 @@ const SelectorBtn = props => {
       justifyContent: "center"
     },
     Selected: {
-      backgroundColor: "green"
+      backgroundColor: props.selectedColor
+        ? props.selectedColor
+        : "rgba(0,0,0,0.3)"
     },
     Text: {
       marginTop: "auto",
