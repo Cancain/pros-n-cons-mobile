@@ -1,0 +1,3 @@
+rootProject.name = 'ProsNCons'
+
+include ':app'
