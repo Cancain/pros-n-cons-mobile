@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { View, TextInput, Button, StyleSheet } from "react-native";
 import SelectorBtn from "../UI/SelectorBtn/SelectorBtn";
+import Btn from "../UI/Btn/Btn";
 
 const InputField = props => {
   const [isPro, setIsPro] = useState(true);
   const styles = StyleSheet.create({
     Wrapper: {
       backgroundColor: "rgba(0, 0, 0, 0.2)",
-      width: "90%",
+      width: "95%",
       marginLeft: "auto",
       marginRight: "auto",
       paddingVertical: 10,
@@ -20,7 +21,10 @@ const InputField = props => {
     },
     InputField: {
       width: "70%",
-      backgroundColor: "rgba(0,0,0,0.4)"
+      backgroundColor: "rgba(0,0,0,0.4)",
+      borderRadius: 7,
+      fontSize: 20,
+      marginRight: 2.5
     }
   });
 
@@ -34,7 +38,7 @@ const InputField = props => {
         style={styles.InputField}
         placeholder="Insert reason here..."
       />
-      <Button color="rgba(0,0,0,0.7)" title="Add" onPress={() => click()} />
+      <Btn text="Add" clicked={() => console.warn("test")} />
     </View>
   );
 

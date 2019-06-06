@@ -7,13 +7,22 @@ const SelectorBtn = props => {
       backgroundColor: "rgba(0,0,0,0.1)",
       marginTop: 10,
       marginHorizontal: 10,
-      padding: 20,
+      padding: 5,
       borderRadius: 100,
-      width: 65,
-      height: 65
+      minWidth: 65,
+      minHeight: 65,
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center"
     },
     Selected: {
       backgroundColor: "green"
+    },
+    Text: {
+      marginTop: "auto",
+      marginBottom: "auto",
+      fontSize: 25,
+      fontWeight: "bold"
     }
   });
 
@@ -23,7 +32,7 @@ const SelectorBtn = props => {
   ];
   return (
     <TouchableHighlight style={proSelectStyle} onPress={() => props.clicked()}>
-      <Text>{props.text}</Text>
+      <Text style={styles.Text}>{props.text}</Text>
     </TouchableHighlight>
   );
 };

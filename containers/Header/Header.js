@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   Wrapper: {
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(0,0,0,0.4)",
     marginBottom: 2.5,
     height: 60
   },
